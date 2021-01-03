@@ -42,7 +42,7 @@ export default {
     
     const SearchMovies = () => {
       if (moviesearch.value != "") {
-        fetch(`http://www.omdbapi.com/?apikey=${env.apikey}&s=${moviesearch.value}&y=${yearsearch.value}`) // api data를 가져오는법
+        fetch(`https://www.omdbapi.com/?apikey=${env.apikey}&s=${moviesearch.value}&y=${yearsearch.value}`) // api data를 가져오는법
           .then(response => response.json())
           .then(data => {
             moviesearch.value = "";

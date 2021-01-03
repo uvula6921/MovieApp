@@ -22,7 +22,7 @@ export default {
     const route = useRoute();
     
     onBeforeMount(() => {
-      fetch(`http://www.omdbapi.com/?apikey=${env.apikey}&i=${route.params.id}&plot=full`)
+      fetch(`https://www.omdbapi.com/?apikey=${env.apikey}&i=${route.params.id}&plot=full`)
         .then(response => response.json())
         .then(data => {
           movie.value = data; // movie.value에 저장하고 dom에서 사용할때엔 {{movie.Title}} 이런식으로 사용
