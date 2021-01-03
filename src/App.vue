@@ -7,6 +7,13 @@
   <main>
     <router-view />
   </main>
+  <footer>
+    <p style="width: 100%;">
+      <MARQUEE bgColor="" height="auto" scrollamount="15" style="color: white; font-size: 15px; line-height: 30px; text-align: center;">
+        COPYRIGHT 2020. 박경준. All rights reserved.
+      </MARQUEE>
+    </p>
+  </footer>
 </template>
 
 <style lang="scss">
@@ -20,8 +27,22 @@
     background: transparentize($color: #42B883, $amount: 0.5)
   }
   
+  #app {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+  }
+  
   body {
     background-color: #35495E;
+  }
+  
+  footer {
+    margin-top: 70px;
+  }
+  
+  main {
+    flex: 1;
   }
   
   a {

@@ -28,13 +28,6 @@
         </router-link>
       </div>
     </div>
-    
-    <p style="width: 100%; margin-top: calc(100% - 322px);">
-      <MARQUEE bgColor="" height="auto" scrollamount="15" style="color: white; font-size: 15px; line-height: 50px; text-align: center;">
-        COPYRIGHT 2020. 박경준. All rights reserved.
-      </MARQUEE>
-    </p>
-    
   </div>
 </template>
 
