@@ -14,6 +14,7 @@
     </form>
     
     <div class="movies-list">
+      <div class="emptymessage" v-if="showmessage">검색 결과가 없습니다!</div>
       <div class="movie" v-for="movie in movies" :key="movie.imdbID">
         <router-link :to="'/movie/' + movie.imdbID" class="movie-link">
           <div class="product-image">
@@ -27,6 +28,13 @@
         </router-link>
       </div>
     </div>
+    
+    <p style="width: 100%; margin-top: calc(100% - 322px);">
+      <MARQUEE bgColor="" height="auto" scrollamount="15" style="color: white; font-size: 15px; line-height: 50px; text-align: center;">
+        COPYRIGHT 2020. 박경준. All rights reserved.
+      </MARQUEE>
+    </p>
+    
   </div>
 </template>
 
@@ -39,6 +47,7 @@ export default {
     const moviesearch = ref("");
     const yearsearch = ref("");
     const movies = ref([]);
+    const showmessage = ref(false);
     
     const SearchMovies = () => {
       if (moviesearch.value != "") {
@@ -48,7 +57,12 @@ export default {
             moviesearch.value = "";
             yearsearch.value = "";
             movies.value = data.Search;
-            console.log(data.Search);
+            
+            if (data.Response == 'False') {
+              showmessage.value = true;
+            } else {
+              showmessage.value = false;
+            }
           });
       } else {
         alert("영화제목을 반드시 입력해주세요.")
@@ -60,6 +74,7 @@ export default {
       yearsearch,
       movies,
       SearchMovies,
+      showmessage,
     }
   }
 }
@@ -146,6 +161,14 @@ export default {
     display: flex;
     flex-wrap: wrap;
     margin: 0 8px;
+    justify-content: center;
+    
+    .emptymessage {
+      color: #fff;
+      text-align: center;
+      font-size: 20px;
+      padding-top: 20px;
+    }
     
     .movie {
       max-width: 50%;
